@@ -4,7 +4,9 @@
       document.addEventListener("DOMContentLoaded", (event) => {
         const iframe = document.getElementById("myIframe");
         window.addEventListener("message", e => {
+          if (e.origin !== "https://eservicetest.helsingborg.se") return;
           if (e.data?.height) iframe.style.height = e.data.height + "px";
+          
         })
   
   iframe.onload = () => {
