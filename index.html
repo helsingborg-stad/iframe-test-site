@@ -1,8 +1,18 @@
 <html>
+  <head>
+    <script>
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const iframe = document.getElementById("myIframe");
+        window.addEventListener("message", e => {
+          if (e.data?.height) iframe.style.height = e.data.height + "px";
+        })
+      });
+    </script>
+  </head>
 <body>
   <h2>iframe testpage</h2>
   <div>
-    <iframe src="https://eservicetest.helsingborg.se/H19" />
+    <iframe id="myIframe" src="https://eservicetest.helsingborg.se/H19" />
   </div>
 </body>
 </html>
