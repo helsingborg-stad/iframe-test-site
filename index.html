@@ -6,7 +6,20 @@
         window.addEventListener("message", e => {
           if (e.data?.height) iframe.style.height = e.data.height + "px";
         })
+  
+  iframe.onload = () => {
+    iframe.contentWindow.postMessage({
+      assets: {
+        css: ["https://iframe.municipio.tech/styles.css"],
+        js: [],
+        fonts: [
+          { family: "OpenSans", src: "https://fonts.gstatic.com/s/opensans/v29/mem8YaGs126MiZpBA-UFVZ0e.ttf" }
+        ]
+      }
+    }, "https://iframe.municipio.tech");
+};
       });
+      
     </script>
   </head>
 <body>
