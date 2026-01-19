@@ -1,3 +1,6 @@
 header, footer {
   display: none;
 }
+body {
+  font-family: "helsingborg-sans-medium";
+}
