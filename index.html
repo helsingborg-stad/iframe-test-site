@@ -1,27 +1,18 @@
 <html>
   <head>
+    <script src="./module.js"> </script>
     <script>
-      document.addEventListener("DOMContentLoaded", (event) => {
-        const iframe = document.getElementById("myIframe");
-        window.addEventListener("message", e => {
-          if (e.origin !== "https://eservicetest.helsingborg.se") return;
-          if (e.data?.height) iframe.style.height = e.data.height + "px";
-          
-        })
-  
-  iframe.onload = () => {
-    iframe.contentWindow.postMessage({
-      assets: {
-        css: ["https://iframe.municipio.tech/styles.css"],
-        js: [],
-        fonts: [
-          { family: "helsingborg-sans-medium", src: "https://media.helsingborg.se/uploads/networks/1/2023/01/helsingborg-sans-medium.woff" }
-        ]
-      }
-    }, "*");
-};
-      });
-      
+      registerIFrameHost({
+        id: "myIframe",
+        assets: {
+          css: ["https://iframe.municipio.tech/styles.css"],
+          js: [],
+          fonts: [
+            { family: "helsingborg-sans-medium", src: "https://media.helsingborg.se/uploads/networks/1/2023/01/helsingborg-sans-medium.woff" }
+          ]
+        },
+        allowedOrigin: "https://eservicetest.helsingborg.se"
+      );
     </script>
     <style>
       body {
