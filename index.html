@@ -1,9 +1,9 @@
 <html>
   <head>
     <script type="module">
-      import { registerIFrameHost } from './module.js';
+      import * as host from './module.js';
 
-      registerIFrameHost({
+      host.registerIFrameHost({
         id: "myIframe",
         assets: {
           css: ["https://iframe.municipio.tech/styles.css"],
