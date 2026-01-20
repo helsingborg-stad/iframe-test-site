@@ -26,11 +26,10 @@ export const registerIFrameHost = ({ id, assets, allowedOrigin }, window) => {
 export const registerIFrameClient = (allowedParent, window) => {
     const { document } = window;
     window.addEventListener('message', (e) => __awaiter(void 0, void 0, void 0, function* () {
-        var _a;
         if (allowedParent !== e.origin)
             return;
-        if ((_a = e.data) === null || _a === void 0 ? void 0 : _a.assets) {
-            const { css = [], js = [], fonts = [] } = e.data.assets;
+        if (e.data) {
+            const { css = [], js = [], fonts = [] } = e.data;
             // Load CSS
             css.forEach((href) => {
                 const l = document.createElement('link');
