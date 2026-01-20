@@ -1,4 +1,3 @@
-"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -8,9 +7,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.registerIFrameClient = exports.registerIFrameHost = void 0;
-const registerIFrameHost = ({ id, assets, allowedOrigin }, window) => {
+export const registerIFrameHost = ({ id, assets, allowedOrigin }, window) => {
     const { document } = window;
     document.addEventListener('DOMContentLoaded', () => {
         const iframe = document.getElementById(id);
@@ -26,8 +23,7 @@ const registerIFrameHost = ({ id, assets, allowedOrigin }, window) => {
         }
     });
 };
-exports.registerIFrameHost = registerIFrameHost;
-const registerIFrameClient = (allowedParent, window) => {
+export const registerIFrameClient = (allowedParent, window) => {
     const { document } = window;
     window.addEventListener('message', (e) => __awaiter(void 0, void 0, void 0, function* () {
         var _a;
@@ -76,4 +72,3 @@ const registerIFrameClient = (allowedParent, window) => {
     sendMessageToParent();
     new ResizeObserver(() => sendMessageToParent()).observe(document.body);
 };
-exports.registerIFrameClient = registerIFrameClient;
