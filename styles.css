@@ -1,3 +1,8 @@
+*,
+*::before,
+*::after {
+  all: unset;
+}
 
 html, body {
   font-family: "helsingborg-sans-medium";
