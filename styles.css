@@ -32,8 +32,10 @@ p {
 .required-label {
   color: #d73740;
 }
-.servicecontent {
+.editCitizenInfo .field-question, .servicecontent .page-fields .field-question {
   text-align: unset;
+}  
+.servicecontent .page-fields .field-question {
   margin: unset;
 }
 .abou-body
