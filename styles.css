@@ -33,7 +33,7 @@ p {
   color: #d73740;
 }
 .servicecontent {
-  background: unset;
+  text-align: unset;
 }
 .abou-body
   margin: unset;
