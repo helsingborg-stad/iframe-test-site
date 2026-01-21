@@ -1,11 +1,7 @@
-*:not(html):not(body),
-*:not(html):not(body)::before,
-*:not(html):not(body)::after {
-  all: revert;
-}
-
-*, *::before, *::after {
-  box-sizing: border-box;
+*,
+*::before,
+*::after {
+  all: unset;
 }
 
 html, body {
