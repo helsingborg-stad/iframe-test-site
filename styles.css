@@ -34,6 +34,7 @@ p {
 }
 .servicecontent {
   text-align: unset;
+  margin: unset;
 }
 .abou-body
   margin: unset;
