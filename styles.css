@@ -24,7 +24,10 @@ p {
   color: #565656;
   font-weight: 700;
   font-size: .75rem;
-  text-transform: "uppercase";
+  text-transform: uppercase;
+}
+.field-input {
+  width: 100%;
 }
 .required-label {
   color: #d73740;
