@@ -1,6 +1,6 @@
-*,
-*::before,
-*::after {
+*:not(html):not(body),
+*:not(html):not(body)::before,
+*:not(html):not(body)::after {
   all: revert;
 }
 
