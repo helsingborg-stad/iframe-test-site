@@ -3,6 +3,7 @@
   margin: unset;
   background: unset;
   text-align: unset;
+  max-width: unset;
 }
 html, body {
   font-family: "helsingborg-sans-medium";
