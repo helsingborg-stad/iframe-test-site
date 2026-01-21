@@ -4,6 +4,10 @@
   all: revert;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 html, body {
   font-family: "helsingborg-sans-medium";
   font-weight: 400;
@@ -12,12 +16,9 @@ html, body {
 }
 
 header, footer, .global-content {
-  display: none;
+  display: none !important;
 }
 
-footer {
-  display: none;
-}
 h2 {
   font-size: 22px;
   line-height: 1.33;
