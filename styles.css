@@ -38,6 +38,9 @@ p {
 .servicecontent .page-fields .field-question {
   margin: unset;
 }
+.servicecontent .field-row, .add-case-attachment .field-row {
+  background: unset;
+}
 .abou-body
   margin: unset;
   box-shadow: unset;
