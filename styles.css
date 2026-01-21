@@ -25,6 +25,10 @@ p {
   font-size: .75rem;
   text-transform: "uppercase";
 }
+.required-label {
+  color: 
+    #d73740;
+}
 .abou-body
   margin: unset;
   box-shadow: unset;
