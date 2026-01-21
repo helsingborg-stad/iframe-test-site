@@ -52,6 +52,6 @@ p {
   box-shadow: unset;
   background: unset;
 }
-.abou-content-width, .abou-body {
-  max-width: none !important;
+.abou-content-width {
+  max-width: unset;
 }
