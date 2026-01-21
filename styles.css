@@ -2,6 +2,7 @@ html, body {
   background: unset; 
   font-family: "helsingborg-sans-medium";
   font-weight: 400;
+  font-size: 1rem;
 }
 
 header, footer, .global-content {
@@ -26,8 +27,10 @@ p {
   text-transform: "uppercase";
 }
 .required-label {
-  color: 
-    #d73740;
+  color: #d73740;
+}
+.servicecontent {
+  background: unset;
 }
 .abou-body
   margin: unset;
