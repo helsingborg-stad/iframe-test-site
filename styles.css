@@ -1,5 +1,10 @@
+* {
+  padding: unset;
+  margin: unset;
+  background: unset;
+  text-align: unset;
+}
 html, body {
-  background: unset; 
   font-family: "helsingborg-sans-medium";
   font-weight: 400;
   font-size: 1rem;
@@ -12,13 +17,10 @@ header, footer, .global-content {
 h2 {
   font-size: 22px;
   line-height: 1.33;
-  margin-top: 0;
 }
 p {
   font-family: Roboto, sans-serif;
   line-height: 1.625;
-  margin-top: 8px;
-  
 }
 .field-question {
   color: #565656;
@@ -34,7 +36,6 @@ p {
   color: #d73740;
 }
 .editCitizenInfo .field-question, .servicecontent .page-fields .field-question {
-  text-align: unset;
 }  
 .servicecontent .page-fields .field-question {
   margin: unset;
