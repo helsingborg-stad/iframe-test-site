@@ -7,6 +7,12 @@ header, footer, .global-content {
   display: none;
 }
 
+h2 {
+  font-size: "22px";
+}
+p {
+  font-family: Roboto, sans-serif;
+}
 .abou-body
   margin: unset;
   box-shadow: unset;
