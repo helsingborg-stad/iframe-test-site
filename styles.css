@@ -25,6 +25,7 @@ p {
   font-weight: 700;
   font-size: .75rem;
   text-transform: uppercase;
+  width: 100%;
 }
 .field-input {
   width: 100%;
