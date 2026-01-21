@@ -12,7 +12,7 @@ html, body {
 }
 
 header, footer, .global-content {
-  display: none !important;
+  display: none;
 }
 
 h2 {
