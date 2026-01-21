@@ -1,6 +1,9 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   all: revert;
 }
+
 html, body {
   font-family: "helsingborg-sans-medium";
   font-weight: 400;
