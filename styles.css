@@ -50,5 +50,5 @@ p {
 }
 
 .abou-content-width {
-  max-width: unset; 
+  max-width: none;
 }
