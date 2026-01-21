@@ -1,6 +1,7 @@
 html, body {
   background: unset; 
   font-family: "helsingborg-sans-medium";
+  font-weight: 400;
 }
 
 header, footer, .global-content {
@@ -8,10 +9,15 @@ header, footer, .global-content {
 }
 
 h2 {
-  font-size: "22px";
+  font-size: 22px;
+  line-height: 1.33;
+  margin-top: 0;
 }
 p {
   font-family: Roboto, sans-serif;
+  line-height: 1.625;
+  margin-top: 8px;
+  
 }
 .abou-body
   margin: unset;
