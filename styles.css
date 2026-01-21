@@ -19,6 +19,12 @@ p {
   margin-top: 8px;
   
 }
+.field-question {
+  color: #565656;
+  font-weight: 700;
+  font-size: .75rem;
+  text-transform: "uppercase";
+}
 .abou-body
   margin: unset;
   box-shadow: unset;
