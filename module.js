@@ -36,22 +36,27 @@ export const registerIFrameClient = (allowedParent, window) => {
         if (e.data) {
             const { css = [], js = [], fonts = [] } = e.data;
             // Load CSS
-            css.forEach((href) => new Promise((resolve, reject) => {{
-                const l = document.createElement('link');
-                l.rel = 'stylesheet';
-                l.href = href;
-                l.onload = () => {
-                    const sendMessageToParent = () => window.parent.postMessage({ height: document.body.clientHeight }, allowedParent);
-                
-                    requestAnimationFrame(() => {
-                        sendMessageToParent();
-                        new ResizeObserver(() => sendMessageToParent()).observe(document.body);
-                    });                    
-                    resolve();
-                };
-                l.onerror = () => reject();
-                document.head.appendChild(l);
-            }});
+			css.forEach(
+				(href) =>
+					new Promise((resolve, reject) => {
+						const l = document.createElement('link');
+						l.rel = 'stylesheet';
+						l.href = href;
+						l.onload = () => {
+							const sendMessageToParent = () =>
+								window.parent.postMessage({ height: document.body.clientHeight }, allowedParent);
+
+							requestAnimationFrame(() => {
+								sendMessageToParent();
+								new ResizeObserver(() => sendMessageToParent()).observe(document.body);
+							});
+							resolve(true);
+						};
+						l.onerror = () => reject();
+						document.head.appendChild(l);
+					}),
+			);
+
             // Load JS
             for (const src of js) {
                 yield new Promise((res, rej) => {
