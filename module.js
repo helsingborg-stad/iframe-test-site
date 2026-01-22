@@ -18,10 +18,7 @@ export const registerIFrameHost = ({ id, assets, allowedOrigin }, window) => {
                     return;
                 if ((_a = e.data) === null || _a === void 0 ? void 0 : _a.height)
                     iframe.style.height = `${e.data.height}px`;
-                
-                if( iframe.contentWindow.readyState === 'complete' ) {
-                    iframe.style.visibility = 'visible';
-                }
+                iframe.style.visibility = 'visible';
             });
             iframe.onload = () => {
                 var _a;
