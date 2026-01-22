@@ -39,6 +39,11 @@ p {
   margin-bottom: 8px;
   text-align: initial;
 }
+
+div.abou-content-width {
+  max-width: none !important;
+}
+
 .field-input {
   width: 100%;
 }
@@ -54,17 +59,17 @@ p {
 .servicecontent .field-row, .add-case-attachment .field-row {
   background: unset;
 }
-.abou-body
+.abou-body {
   margin: unset;
   box-shadow: unset;
   background: unset;
 }
-div.abou\-content\-width {
-  max-width: none !important;
-}`,         
-          fonts: [
-            { family: "helsingborg-sans-medium", src: "https://media.helsingborg.se/uploads/networks/1/2023/01/helsingborg-sans-medium.woff" }
-          ]
+@font-face {
+    font-family: 'helsingborg-sans-medium"';
+    font-style: normal;
+    font-weight: 500;
+    src: url('https://media.helsingborg.se/uploads/networks/1/2023/01/helsingborg-sans-medium.woff') format('truetype')
+}`       
         },
         allowedOrigin: "https://eservicetest.helsingborg.se"
       }, window);
