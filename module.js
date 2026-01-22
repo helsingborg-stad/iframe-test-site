@@ -19,7 +19,11 @@ export const registerIFrameHost = ({ id, assets, allowedOrigin }, window) => {
                 if ((_a = e.data) === null || _a === void 0 ? void 0 : _a.height)
                     iframe.style.height = `${e.data.height}px`;
             });
-            iframe.onload = () => { var _a; return (_a = iframe.contentWindow) === null || _a === void 0 ? void 0 : _a.postMessage(assets, allowedOrigin); };
+            iframe.onload = () => {
+                var _a;
+                iframe.style.visibility = 'visible';
+                (_a = iframe.contentWindow) === null || _a === void 0 ? void 0 : _a.postMessage(assets, allowedOrigin);
+            };
         }
     });
 };
