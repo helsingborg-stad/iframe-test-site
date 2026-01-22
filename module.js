@@ -76,6 +76,8 @@ export const registerIFrameClient = (allowedParent, window) => {
     }
     const sendMessageToParent = () => window.parent.postMessage({ height: document.body.clientHeight }, allowedParent);
 
-    requestAnimationFrame(() => sendMessageToParent());
-    new ResizeObserver(() => sendMessageToParent()).observe(document.body);
+    requestAnimationFrame(() => {
+        sendMessageToParent();
+        new ResizeObserver(() => sendMessageToParent()).observe(document.body);
+    });
 };
