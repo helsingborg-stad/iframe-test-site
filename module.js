@@ -34,34 +34,15 @@ export const registerIFrameClient = (allowedParent, window) => {
         if (allowedParent !== e.origin)
             return;
         if (e.data) {
-            const { css = [], js = [], fonts = [] } = e.data;
-            // Load CSS
-            css.forEach((href) => new Promise((resolve, reject) => {
-                const l = document.createElement('link');
-                l.rel = 'stylesheet';
-                l.href = href;
-                l.onload = () => {
-                    const sendMessageToParent = () => window.parent.postMessage({ height: document.body.clientHeight }, allowedParent);
-                    requestAnimationFrame(() => {
-                        sendMessageToParent();
-                        new ResizeObserver(() => sendMessageToParent()).observe(document.body);
-                    });
-                    resolve(true);
-                };
-                l.onerror = () => reject();
-                document.head.appendChild(l);
-            }));
-
-            // Load JS
-            for (const src of js) {
-                yield new Promise((res, rej) => {
-                    const s = document.createElement('script');
-                    s.src = src;
-                    s.onload = res;
-                    s.onerror = rej;
-                    document.body.appendChild(s);
-                }).catch((err) => console.error('Failed to load JS:', src, err));
-            }
+            const { css = '', fonts = [] } = e.data;
+            const style = document.createElement('style');
+            style.textContent = css;
+            document.head.appendChild(style);
+            const sendMessageToParent = () => window.parent.postMessage({ height: document.body.clientHeight }, allowedParent);
+            requestAnimationFrame(() => {
+                sendMessageToParent();
+                new ResizeObserver(() => sendMessageToParent()).observe(document.body);
+            });
             // Load Fonts (FontFace API)
             fonts.forEach((f) => {
                 const font = new FontFace(f.family, `url(${f.src})`);
