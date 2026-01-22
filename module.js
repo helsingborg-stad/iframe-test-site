@@ -38,17 +38,7 @@ export const registerIFrameClient = (allowedParent, window) => {
             const style = document.createElement('style');
             style.textContent = css;
             document.head.appendChild(style);
-            // Load Fonts (FontFace API)
-            fonts.forEach((f) => {
-                const font = new FontFace(f.family, `url(${f.src})`);
-                font
-                    .load()
-                    .then((loaded) => {
-                    document.fonts.add(loaded);
-                    console.log(`Font loaded: ${f.family}`);
-                })
-                    .catch((err) => console.error('Failed to load font:', f, err));
-            });
+
             const sendMessageToParent = () => window.parent.postMessage({ height: document.body.clientHeight }, allowedParent);
             requestAnimationFrame(() => {
                 sendMessageToParent();
