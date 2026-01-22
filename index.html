@@ -7,10 +7,11 @@
         id: "myIframe",
         assets: {
           css: `
-*:not(html):not(body),
-*:not(html):not(body)::before,
-*:not(html):not(body)::after {
+*,
+*::before,
+*::after {
   all: revert;
+  box-sizing: border-box;
 }
 
 html, body {
