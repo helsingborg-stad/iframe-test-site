@@ -21,6 +21,7 @@ export const registerIFrameHost = ({ id, assets, allowedOrigin }, window) => {
                 iframe.style.visibility = 'visible';
             });
             iframe.onload = () => {
+                console.log("iframe:onload");
                 var _a;
                 (_a = iframe.contentWindow) === null || _a === void 0 ? void 0 : _a.postMessage(assets, allowedOrigin);
             };
@@ -35,12 +36,22 @@ export const registerIFrameClient = (allowedParent, window) => {
         if (e.data) {
             const { css = [], js = [], fonts = [] } = e.data;
             // Load CSS
-            css.forEach((href) => {
+            css.forEach((href) => new Promise((resolve, reject) => {{
                 const l = document.createElement('link');
                 l.rel = 'stylesheet';
                 l.href = href;
+                l.onload = () => {
+                    const sendMessageToParent = () => window.parent.postMessage({ height: document.body.clientHeight }, allowedParent);
+                
+                    requestAnimationFrame(() => {
+                        sendMessageToParent();
+                        new ResizeObserver(() => sendMessageToParent()).observe(document.body);
+                    });                    
+                    resolve();
+                };
+                l.onerror = () => reject();
                 document.head.appendChild(l);
-            });
+            }});
             // Load JS
             for (const src of js) {
                 yield new Promise((res, rej) => {
@@ -71,10 +82,4 @@ export const registerIFrameClient = (allowedParent, window) => {
     if (elem) {
         elem.style.height = 'auto';
     }
-    const sendMessageToParent = () => window.parent.postMessage({ height: document.body.clientHeight }, allowedParent);
-
-    requestAnimationFrame(() => {
-        sendMessageToParent();
-        new ResizeObserver(() => sendMessageToParent()).observe(document.body);
-    });
 };
