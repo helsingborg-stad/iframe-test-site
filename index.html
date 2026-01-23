@@ -3,101 +3,102 @@
     <script type="module">
       import { registerIFrameHost} from './assets/js/module.js';
 
+      const css = `
+          *,
+          *::before,
+          *::after {
+            all: revert;
+            box-sizing: border-box;
+          }
+          html, body {
+            font-family: Roboto, sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            line-height: initial;
+            background-color: unset;
+          }
+          
+          header, footer, .global-content {
+            display: none;
+          }
+          
+          h2 {
+            font-family: "helsingborg-sans-medium";
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.33;
+            letter-spacing: 0;
+            margin: 0;
+          }
+          p {
+            all: revert;
+            line-height: 1.625;
+            margin-top: 8px;
+          }
+          select {
+            height: 34px;
+          }
+          .field-question, .field-question-block {
+            color: #565656;
+            font-weight: 700;
+            font-size: .75rem;
+            text-transform: uppercase;
+            width: 100%;
+            letter-spacing: .05rem;
+            margin-bottom: 8px;
+            text-align: initial;
+          }
+          .form-control {
+            all: revert;
+            background-color: #f5f5f5;
+            border: 1px solid #cfcfcf;
+            font-size: .95rem;
+            margin: 0;
+            padding: 8px;
+            width: 100%;
+          }
+          .field-block {
+            background-color: unset !important;
+          }
+          .field-input {
+            width: 100%;
+          }
+          .required-label {
+            color: #d73740;
+          }
+          .editCitizenInfo .field-question, .servicecontent .page-fields .field-question {
+            text-align: left;
+          }  
+          .servicecontent .page-fields .field-question {
+            margin: unset;
+          }
+          .servicecontent .field-row, .add-case-attachment .field-row {
+            background: unset;
+          }
+          .validation-error-label, .failed, .validationError, .validation-message, .pageValidator .glyphicon-warning-sign {
+            font-size: .75rem;
+            color: #d73740;
+            margin-top: 4px;
+          }
+          .abou-body {
+            margin: unset;
+            box-shadow: unset;
+            background: unset;
+          }
+          .abou-content-width {
+            max-width: none;
+          }
+          @font-face {
+              font-family: 'helsingborg-sans-medium';
+              font-style: normal;
+              font-weight: 400;
+              src: url('https://media.helsingborg.se/uploads/networks/1/2023/01/helsingborg-sans-medium.woff') format('truetype')
+          }`;
+
       registerIFrameHost({
         id: "myIframe",
         assets: {
-          css: `
-*,
-*::before,
-*::after {
-  all: revert;
-  box-sizing: border-box;
-}
-
-html, body {
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: initial;
-  background-color: unset;
-}
-
-header, footer, .global-content {
-  display: none;
-}
-
-h2 {
-  font-family: "helsingborg-sans-medium";
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 1.33;
-  letter-spacing: 0;
-  margin: 0;
-}
-p {
-  all: revert;
-  line-height: 1.625;
-  margin-top: 8px;
-}
-select {
-  height: 34px;
-}
-.field-question, .field-question-block {
-  color: #565656;
-  font-weight: 700;
-  font-size: .75rem;
-  text-transform: uppercase;
-  width: 100%;
-  letter-spacing: .05rem;
-  margin-bottom: 8px;
-  text-align: initial;
-}
-.form-control {
-  all: revert;
-  background-color: #f5f5f5;
-  border: 1px solid #cfcfcf;
-  font-size: .95rem;
-  margin: 0;
-  padding: 8px;
-  width: 100%;
-}
-.field-block {
-  background-color: unset !important;
-}
-.field-input {
-  width: 100%;
-}
-.required-label {
-  color: #d73740;
-}
-.editCitizenInfo .field-question, .servicecontent .page-fields .field-question {
-  text-align: left;
-}  
-.servicecontent .page-fields .field-question {
-  margin: unset;
-}
-.servicecontent .field-row, .add-case-attachment .field-row {
-  background: unset;
-}
-.validation-error-label, .failed, .validationError, .validation-message, .pageValidator .glyphicon-warning-sign {
-  font-size: .75rem;
-  color: #d73740;
-  margin-top: 4px;
-}
-.abou-body {
-  margin: unset;
-  box-shadow: unset;
-  background: unset;
-}
-.abou-content-width {
-  max-width: none;
-}
-@font-face {
-    font-family: 'helsingborg-sans-medium';
-    font-style: normal;
-    font-weight: 400;
-    src: url('https://media.helsingborg.se/uploads/networks/1/2023/01/helsingborg-sans-medium.woff') format('truetype')
-}`       
+          css
         },
         allowedOrigin: "https://eservicetest.helsingborg.se"
       }, window);
