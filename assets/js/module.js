@@ -25,7 +25,7 @@ export const registerIFrameHost = ({ id, assets, allowedOrigin }, window) => {
                 var r = Array.from(getComputedStyle(document.documentElement)).filter(x => x.startsWith('--')).map(x =>
                     `${x}: ${variables.getPropertyValue(x)}`
                 );
-                assets += `:root {\n${r.join(';\n')}}`;
+                assets.css += `:root {\n${r.join(';\n')}}`;
                 console.log(assets);
                 var _a;
                 (_a = iframe.contentWindow) === null || _a === void 0 ? void 0 : _a.postMessage(assets, allowedOrigin);
