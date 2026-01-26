@@ -23,7 +23,7 @@ export const registerIFrameHost = ({ id, assets, allowedOrigin }, window) => {
             iframe.onload = () => {
                 var variables = getComputedStyle(document.documentElement);
                 var r = Array.from(getComputedStyle(document.documentElement)).filter(x => x.startsWith('--')).map(x =>
-                    `${x}; ${variables}.getPropertyValue(x);
+                    `${x}: ${variables.getPropertyValue(x)}`;
                 );
                 assets += `:root {\n${r.join(';\n')}}`;
                 console.log(assets);
