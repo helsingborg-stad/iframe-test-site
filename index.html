@@ -55,9 +55,9 @@
       import { registerIFrameHost} from './assets/js/module.js';
 
       const css = `
-          *,
-          *::before,
-          *::after {
+          *:not(body),
+          *:not(body)::before,
+          *:not(body)::after {
             all: revert;
             box-sizing: border-box;
           }
