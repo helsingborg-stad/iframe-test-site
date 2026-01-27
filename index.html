@@ -278,13 +278,14 @@
             max-width: none;
           }
           .btn {
+            all: revert;
             height: calc(var(--base, 8px) * 6.5);
             min-width: calc(var(--base, 8px) * 9);
             padding: 0 calc(var(--base, 8px) * 4);
             font-size: .95rem;
             border-radius: var(--c-button-border-radius, var(--radius-md, var(--base, 8px)/2));
             background-color: var(--c-button-primary-color, var(--color-primary, #ae0b05));
-            color: var(--c-button-primary-color-contrasting, var(--color-primary-contrasting, var(--color-white, #ffffff)));
+            color: var(--c-button-primary-color-contrasting, var(--color-primary-contrasting, var(--color-white, #ffffff))) !important;
             display: inline-flex;
             vertical-align: middle;
             align-items: center;
@@ -294,12 +295,6 @@
             font-weight: var(--c-button-font-weight, var(--font-weight-button, 500));
             font-family: var(--c-button-font-family, var(--font-family-button, var(--font-family-base, "Roboto", sans-serif)));
             text-transform: var(--c-button-text-transform, var(--text-transform-button, none));
-            background-color: transparent;
-            border: none;
-            -webkit-user-select: none;
-            user-select: none;
-            position: relative;
-            max-width: 100%;
           }
           .button-wrapper a, .button-wrapper a:link, .button-wrapper a:visited, .button-wrapper a:focus, .button-wrapper a:hover, .button-wrapper a:active {
             color: unset;
