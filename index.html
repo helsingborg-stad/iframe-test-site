@@ -88,18 +88,17 @@
             margin: 0;
             margin-top: calc(var(--base, 8px) * 2);
           }
+          .field-question, .field-question-block {
+            text-align: unset;
+            color: var(--c-field-label-color, var(--color-darker, #565656));
+            font-size: var(--c-field-label-font-size, .75rem);
+            font-weight: var(--c-field-label-font-size, 700);
+            text-transform: var(--c-field-label-text-transform, uppercase);
+            margin-bottom: calc(var(--base, 8px) / 2);
+            letter-spacing: .05rem;
+          }
           select {
             height: 34px;
-          }
-          .field-question, .field-question-block {
-            color: #565656;
-            font-weight: 700;
-            font-size: .75rem;
-            text-transform: uppercase;
-            width: 100%;
-            letter-spacing: .05rem;
-            margin-bottom: 8px;
-            text-align: initial;
           }
           .form-control {
             all: revert;
