@@ -1,3 +1,3 @@
 import { registerIFrameClient } from './assets/js/module.js';
 
-registerIFrameClient('https://e-service.helsingborg.se', window);
+registerIFrameClient('https://helsingborg.se', window);
