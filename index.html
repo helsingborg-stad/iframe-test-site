@@ -184,122 +184,296 @@
       import { registerIFrameHost} from './assets/js/module.js';
 
       const css = `
-          html, body {
-            all: revert;
-            background-color: var(--color-background, var(--color-default, #f5f5f5)) !important;
-            font-size: var(--font-size-base, 1rem) !important;
-            font-family: var(--font-family-base, "Roboto", sans-serif) !important;
-            line-height: var(--line-height-base, 1.625) !important;
-            font-weight: var(--font-weight-base, 400) !important;
-          }
-          
-          header, footer, .global-content {
-            display: none !important;
-          }
-          
-          h2 {
-            all: revert !important;
-            font-size: clamp(var(--font-size-base, 1rem) + .25rem,3vw,var(--h2-font-size, 1.375rem)) !important;
-            font-weight: var(--h2-font-weight, var(--font-weight-heading, 500)) !important;
-            line-height: var(--h2-line-height, var(--line-height-heading, 1.33)) !important;
-            font-family: var(--h2-font-family, var(--font-family-heading, var(--font-family-base, "Roboto", sans-serif))) !important;
-          }
-          p {
-            all: revert !important;
-            margin: 0 !important;
-            margin-top: calc(var(--base, 8px) * 2) !important;
-          }
-          .field-question, .field-question-block {
-            text-align: unset;
-            color: var(--c-field-label-color, var(--color-darker, #565656));
-            font-size: var(--c-field-label-font-size, .75rem);
-            font-weight: var(--c-field-label-font-size, 700);
-            text-transform: var(--c-field-label-text-transform, uppercase);
-            margin-bottom: calc(var(--base, 8px) / 2);
-            letter-spacing: .05rem;
-          }
-          select {
-            -webkit-appearance: none !important;
-            appearance: none !important;
-          }
-          .form-control {
-            all: revert;
-            padding: calc(var(--base, 8px) * 2);
-            height: var(--c-field-height-computed);
-            width: 100%;
-            min-width: calc(var(--base, 8px) * 10);
-            font-size: var(--c-field-font-size-md, .95rem);
-            line-height: var(--c-field-font-size-md-line-height, calc(var(--base, 8px) * 2));
-            border: var(--c-field-border-width, var(--border-width-input, 1px)) solid var(--c-field-border-color, var(--color-border-input, var(--color-light, #a3a3a3)));
-            background: var(--c-field-background-color, var(--color-form-fields, #f5f5f5));
-            border-radius: calc(var(--base, 8px) * var(--c-field-border-radius, .25));
-            margin: 0;
-          }
-          textarea.form-control {
-            width: unset;
-          }
-          .field-block {
-            background-color: unset !important;
-          }
-          .field-input {
-            width: 100%;
-          }
-          .required-label {
-            color: #d73740;
-          }
-          .editCitizenInfo h2, .morewaysofcontact .greyboxheading, .newstartpageheaderleft>h2 {
-              border-bottom: 1px solid var(--color-border, rgba(0, 0, 0, .1215686275)) !important;
-          }
-          .editCitizenInfo .field-question, .servicecontent .page-fields .field-question {
-            text-align: left;
-          }  
-          .servicecontent .page-fields .field-question {
-            margin: unset;
-          }
-          .servicecontent .field-row, .add-case-attachment .field-row {
-            background: unset;
-          }
-          .validation-error-label, .failed, .validationError, .validation-message, .pageValidator .glyphicon-warning-sign {
-            font-size: .75rem;
-            color: #d73740;
-            margin-top: 4px;
-          }
-          .abou-body {
-            margin: unset;
-            box-shadow: unset;
-            background: unset;
-          }
-          .abou-content-width {
-            max-width: none;
-          }
-          .btn {
-            all: revert;
-            height: calc(var(--base, 8px) * 6.5);
-            min-width: calc(var(--base, 8px) * 9);
-            padding: 0 calc(var(--base, 8px) * 4);
-            font-size: .95rem !important;
-            border-radius: var(--c-button-border-radius, var(--radius-md, var(--base, 8px)/2));
-            background-color: var(--c-button-primary-color, var(--color-primary, #ae0b05));
-            color: var(--c-button-primary-color-contrasting, var(--color-primary-contrasting, var(--color-white, #ffffff))) !important;
-            display: inline-flex;
-            vertical-align: middle;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            cursor: pointer;
-            font-weight: var(--c-button-font-weight, var(--font-weight-button, 500));
-            font-family: var(--c-button-font-family, var(--font-family-button, var(--font-family-base, "Roboto", sans-serif)));
-            text-transform: var(--c-button-text-transform, var(--text-transform-button, none));
-          }
-          .button-wrapper a, .button-wrapper a:link, .button-wrapper a:visited, .button-wrapper a:focus, .button-wrapper a:hover, .button-wrapper a:active {
-            color: unset;
-          }
-          @font-face {
-              font-family: 'helsingborg-sans-medium';
-              font-style: normal;
-              font-weight: 400;
-              src: url('https://media.helsingborg.se/uploads/networks/1/2023/01/helsingborg-sans-medium.woff') format('truetype')
-          }`;
+html,
+body {
+    all: revert;
+    background-color: var(--color-background, var(--color-default, #f5f5f5)) !important;
+    font-size: var(--font-size-base, 1rem) !important;
+    font-family: var(--font-family-base, "Roboto", sans-serif) !important;
+    line-height: var(--line-height-base, 1.625) !important;
+    font-weight: var(--font-weight-base, 400) !important;
+    overflow: hidden !important;
+}
+
+header,
+footer,
+.global-content {
+    display: none !important;
+}
+
+h2 {
+    all: revert !important;
+    font-size: clamp(var(--font-size-base, 1rem) + .25rem, 3vw, var(--h2-font-size, 1.375rem)) !important;
+    font-weight: var(--h2-font-weight, var(--font-weight-heading, 500)) !important;
+    line-height: var(--h2-line-height, var(--line-height-heading, 1.33)) !important;
+    font-family: var(--h2-font-family, var(--font-family-heading, var(--font-family-base, "Roboto", sans-serif))) !important;
+}
+
+h3 {
+    all: revert !important;
+    font-size: clamp(var(--font-size-base, 1rem), 3vw, var(--h4-font-size, 1rem)) !important;
+    font-weight: var(--h4-font-weight, var(--font-weight-heading, 500)) !important;
+    line-height: var(--h4-line-height, var(--line-height-heading, 1.33)) !important;
+    font-family: var(--h4-font-family, var(--font-family-heading, var(--font-family-base, "Roboto", sans-serif))) !important;
+}
+
+h4,
+legend {
+    all: revert !important;
+    font-size: clamp(var(--font-size-base, 1rem), 3vw, var(--h4-font-size, 1rem)) !important;
+    font-weight: var(--h4-font-weight, var(--font-weight-heading, 500)) !important;
+    line-height: var(--h4-line-height, var(--line-height-heading, 1.33)) !important;
+    font-family: var(--h4-font-family, var(--font-family-heading, var(--font-family-base, "Roboto", sans-serif))) !important;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+legend {
+    padding: 8px 0 8px !important;
+    margin: 0 !important;
+}
+
+p {
+    all: revert !important;
+    margin: 0 !important;
+}
+
+.bodyWrapper {
+    padding: unset !important;
+}
+
+.pageContent {
+    margin: unset !important;
+}
+
+.container {
+    padding: unset !important;
+    margin: unset !important;
+}
+
+.newstartpageheaderleft {
+    margin: unset !important;
+}
+
+.row {
+    margin: unset !important;
+}
+
+.field-row-block {
+    padding-bottom: 8px !important;
+}
+
+label,
+th[scope="col"]>span {
+    text-align: unset !important;
+    color: var(--c-field-label-color, var(--color-darker, #565656)) !important;
+    font-size: var(--c-field-label-font-size, .75rem) !important;
+    font-weight: var(--c-field-label-font-size, 700) !important;
+    text-transform: var(--c-field-label-text-transform, uppercase) !important;
+    margin-bottom: calc(var(--base, 8px) / 2) !important;
+    letter-spacing: .05rem !important;
+}
+
+select {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+}
+
+.form-control {
+    padding: calc(var(--base, 8px) * 2) !important;
+    height: var(--c-field-height-computed) !important;
+    width: 100% !important;
+    min-width: calc(var(--base, 8px) * 10) !important;
+    font-size: var(--c-field-font-size-md, .95rem) !important;
+    line-height: var(--c-field-font-size-md-line-height, calc(var(--base, 8px) * 2)) !important;
+    border: var(--c-field-border-width, var(--border-width-input, 1px)) solid var(--c-field-border-color, var(--color-border-input, var(--color-light, #a3a3a3))) !important;
+    background: var(--c-field-background-color, var(--color-form-fields, #f5f5f5)) !important;
+    border-radius: calc(var(--base, 8px) * var(--c-field-border-radius, .25)) !important;
+    margin: 0 !important;
+}
+
+.col-lg-1,
+.col-lg-10,
+.col-lg-11,
+.col-lg-12,
+.col-lg-2,
+.col-lg-3,
+.col-lg-4,
+.col-lg-5,
+.col-lg-6,
+.col-lg-7,
+.col-lg-8,
+.col-lg-9,
+.col-md-1,
+.col-md-10,
+.col-md-11,
+.col-md-12,
+.col-md-2,
+.col-md-3,
+.col-md-4,
+.col-md-5,
+.col-md-6,
+.col-md-7,
+.col-md-8,
+.col-md-9,
+.col-sm-1,
+.col-sm-10,
+.col-sm-11,
+.col-sm-12,
+.col-sm-2,
+.col-sm-3,
+.col-sm-4,
+.col-sm-5,
+.col-sm-6,
+.col-sm-7,
+.col-sm-8,
+.col-sm-9,
+.col-xs-1,
+.col-xs-10,
+.col-xs-11,
+.col-xs-12,
+.col-xs-2,
+.col-xs-3,
+.col-xs-4,
+.col-xs-5,
+.col-xs-6,
+.col-xs-7,
+.col-xs-8,
+.col-xs-9 {
+    padding: unset !important;
+}
+
+.field-block {
+    background-color: unset !important;
+    padding: unset !important;
+    margin: unset !important;
+}
+
+.required-label {
+    color: #d73740 !important;
+}
+
+.editCitizenInfo h2,
+.morewaysofcontact .greyboxheading,
+.newstartpageheaderleft>h2 {
+    border-bottom: 1px solid var(--color-border, rgba(0, 0, 0, .1215686275)) !important;
+    padding-bottom: 12px !important;
+}
+
+.editCitizenInfo .field-question,
+.servicecontent .page-fields .field-question {
+    text-align: left !important;
+}
+
+.servicecontent .page-fields .field-question {
+    margin: unset !important;
+}
+
+.servicecontent .field-row,
+.add-case-attachment .field-row {
+    background: unset !important;
+}
+
+.validation-error-label,
+.failed,
+.validationError,
+.validation-message,
+.pageValidator .glyphicon-warning-sign {
+    font-size: .75rem !important;
+    color: #d73740 !important;
+    margin-top: 4px !important;
+}
+
+.abou-body {
+    margin: unset !important;
+    box-shadow: unset !important;
+    background: unset !important;
+}
+
+.abou-content-width {
+    max-width: unset !important;
+}
+
+input[type=date],
+input[type=time],
+input[type=datetime-local],
+input[type=month] {
+    line-height: unset !important;
+}
+
+maincontent .field-block a,
+.menugroup a,
+.maincontent .page-content a,
+.mainContentPanel a,
+.footerWrapper a,
+.ms2-navigation-back a {
+    color: var(--c-button-primary-color-contrasting, var(--color-primary-contrasting, var(--color-white, #ffffff))) !important
+}
+
+.btn-default {
+    border-color: unset !important;
+}
+
+.btn {
+    all: unset !important;
+    height: calc(var(--base, 8px) * 6.5) !important;
+    min-width: calc(var(--base, 8px) * 9) !important;
+    padding: 0 calc(var(--base, 8px) * 4) !important;
+    font-size: .95rem !important;
+    border-radius: var(--c-button-border-radius, var(--radius-md, var(--base, 8px)/2)) !important;
+    background-color: var(--c-button-primary-color, var(--color-primary, #ae0b05)) !important;
+    color: var(--c-button-primary-color-contrasting, var(--color-primary-contrasting, var(--color-white, #ffffff))) !important;
+    display: inline-flex !important;
+    vertical-align: middle !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    font-weight: var(--c-button-font-weight, var(--font-weight-button, 500)) !important;
+    font-family: var(--c-button-font-family, var(--font-family-button, var(--font-family-base, "Roboto", sans-serif))) !important;
+    text-transform: var(--c-button-text-transform, var(--text-transform-button, none)) !important;
+}
+
+a.btn:hover {
+    filter: var(--drop-shadow-2, drop-shadow(0px calc(6px * var(--drop-shadow-amount, .7)) calc(8px * var(--drop-shadow-amount, .7)) var(--drop-shadow-color, rgba(0, 0, 0, .1)))) !important;
+}
+
+a.btn:hover:after {
+    background: var(--color-white, #ffffff) !important;
+    opacity: .24 !important;
+}
+
+a.btn:hover:active {
+    filter: var(--drop-shadow-1, drop-shadow(0px calc(4px * var(--drop-shadow-amount, .7)) calc(6px * var(--drop-shadow-amount, .7)) var(--drop-shadow-color, rgba(0, 0, 0, .1)))) !important;
+}
+
+a.btn:hover:active:after {
+    background: var(--color-black, #000000) !important;
+    opacity: .32 !important;
+}
+
+.button-wrapper {
+    margin-right: 8px !important;
+    display: block !important;
+}
+
+.themeContrastColors {
+    max-width: unset !important;
+    margin-top: 16px !important;
+}
+
+@font-face {
+    font-family: 'helsingborg-sans-medium';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://media.helsingborg.se/uploads/networks/1/2023/01/helsingborg-sans-medium.woff') format('truetype')
+}`;
 
       registerIFrameHost({
         id: "myIframe",
