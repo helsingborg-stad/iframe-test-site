@@ -52,4 +52,9 @@ export const registerIFrameClient = (allowedParent: string, window: Window) => {
 	if (elem) {
 		elem.style.height = 'auto';
 	}
+	document?.querySelectorAll<HTMLAnchorElement>('a.btn').forEach((x) => {
+		x.tabIndex = 0;
+		x.role = "button";
+	})
+
 };
